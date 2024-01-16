@@ -2,8 +2,9 @@
 import Bounded from "@/components/Bounded";
 import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import { Shapes } from './Shapes'
 
 /**
  * Props for `Hero`.
@@ -67,8 +68,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       ref={component}
     >
-      <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
-        <div>
+      <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center ">
+        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 md:mt-0">
+          <Shapes />
+        </div>
+
+        <div className="col-start-1 md:row-start-1">
           <h1 className="mb-8 text-3xl md:text-[8rem] font-extrabold leading-none tracking-tighter"
             aria-label={`${slice.primary.first_name} ${slice.primary.last_name}`}>
             <span className="block text-slate-300">{renderLetters(slice.primary.first_name, 'first')}</span>
@@ -76,7 +81,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </h1>
           <span className="job-title  block text-2xl font-bold uppercase tracking-wide text-transparent bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text opacity-0">{slice.primary.tag_line}</span>
         </div>
-        <div></div>
+
       </div>
     </Bounded>
   );
