@@ -67,18 +67,27 @@ function Geometries() {
     }),
   ];
 
+  const soundEffects = [
+    new Audio("/sounds/click1.ogg"),
+    new Audio("/sounds/click2.ogg"),
+    new Audio("/sounds/click3.ogg"),
+    new Audio("/sounds/click4.ogg"),
+    new Audio("/sounds/click5.ogg"),
+  ];
+
   return geometries.map(({ geometry, position, rate }) => (
     <Geometry
       key={JSON.stringify(position)}
       position={position.map((p) => p * 3)}
       geometry={geometry}
       materials={materials}
+      soundEffects={soundEffects}
       rate={rate}
     />
   ));
 }
 
-function Geometry({ position, geometry, materials, rate }) {
+function Geometry({ position, geometry, materials, rate, soundEffects }) {
   const meshRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
   const startingMaterial = getRandomMaterial();
@@ -101,12 +110,13 @@ function Geometry({ position, geometry, materials, rate }) {
 
   function handleClick(e) {
     const mesh = e.object;
-    console.log({ e, mesh });
+
+    gsap.utils.random(soundEffects).play();
 
     gsap.to(mesh.rotation, {
-      x: `+=${gsap.utils.random(0, 2)}`,
-      y: `+=${gsap.utils.random(0, 2)}`,
-      z: `+=${gsap.utils.random(0, 2)}`,
+      x: `+=${gsap.utils.random(0, 3)}`,
+      y: `+=${gsap.utils.random(0, 3)}`,
+      z: `+=${gsap.utils.random(0, 3)}`,
       duration: 1.3,
       ease: "elastic.out(1, 0.3)",
       yoyo: true,
