@@ -6,7 +6,6 @@ import React from 'react'
 const Header = async () => {
     const client = createClient();
     const settings = await client.getSingle('settings')
-    console.log(settings.data.nav_item)
     return (
         <header className='top-0 z-50 mx-auto max-w-7xl md:sticky md:top-4 '>
             <nav>

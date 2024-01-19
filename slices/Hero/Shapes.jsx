@@ -134,7 +134,6 @@ function Geometry({ position, geometry, materials, rate, soundEffects }) {
   }
 
   function getRandomMaterial() {
-    console.log("calling random");
     return gsap.utils.random(materials);
   }
   return (
