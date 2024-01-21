@@ -17,7 +17,7 @@ const Navbar = ({ settings }: { settings: Content.SettingsDocument }) => {
     return (
         <nav aria-label="Main Navigation">
             <ul className='bg-slate-50 flex flex-col justify-between rounded-b-lg px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl'>
-                <div>
+                <div className='flex items-center justify-between'>
                     <NameLogo name={settings.data.name} />
                     <button className='block md:hidden p-2 text-2xl text-slate-800' onClick={() => setOpen(true)}><MdMenu /></button>
                 </div>
