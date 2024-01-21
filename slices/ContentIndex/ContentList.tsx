@@ -143,7 +143,7 @@ function ContentList({ items, contentType, fallbackItemImage, viewMoreText }: Co
             <ul ref={componentRef} className='grid border-b border-b-slate-100' onMouseLeave={handleMouseLeave}>
                 {items.map((item, i) => (
                     <li key={i} className='opacity-0 list-item' onMouseEnter={() => handleMouseEnter(i)} ref={el => (itemsRef.current[i] = el)}>
-                        <Link href={`${urlPrefix} / ${item.id}`} className='flex flex-col md:flex-row justify-between border-t border-t-slate-100 py-10  text-slate-200 '>
+                        <Link href={`${urlPrefix}/${item.uid}`} className='flex flex-col md:flex-row justify-between border-t border-t-slate-100 py-10  text-slate-200 '>
                             <div className='flex flex-col'>
                                 <span className='text-3xl font-bold'>
 
